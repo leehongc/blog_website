@@ -30,7 +30,9 @@ app.get("/contact", function(req, res){
   res.render('contact', {contactText:contactContent});
 });
 
-
+app.post("/compose", function(req, res){
+  console.log(req.body.postTitle);
+});
 
 
 
