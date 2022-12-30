@@ -18,8 +18,10 @@ app.use(express.static("public"));
 let posts = [];
 
 app.get("/", function(req, res){
-  res.render('home', {homeStarterText:homeStartingContent});
-  console.log(posts);
+  res.render('home', {
+    homeStarterText:homeStartingContent,
+    posts: posts
+  });
 });
 app.get("/compose", function(req, res){
   res.render('compose');
