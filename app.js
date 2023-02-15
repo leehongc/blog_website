@@ -28,14 +28,15 @@ const postSchema = {
 
 const Post = mongoose.model("Post", postSchema);
 
-let posts = [];
-
 app.get("/", function(req, res){
-  res.render('home', {
-    homeStarterText:homeStartingContent,
-    posts: posts
+  Post.find({}, function(err, posts){
+    res.render('home', {
+      homeStarterText:homeStartingContent,
+      posts: posts
+    });
   });
 });
+
 app.get("/compose", function(req, res){
   res.render('compose');
 });
